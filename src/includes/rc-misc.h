@@ -84,6 +84,7 @@ pid_t exec_service(const char *, const char *);
 int is_writable(const char *);
 
 #define service_start(service) exec_service(service, "start");
+#define service_status(service) exec_service(service, "status");
 #define service_stop(service)  exec_service(service, "stop");
 
 int parse_mode(mode_t *, char *);
