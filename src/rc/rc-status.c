@@ -116,6 +116,9 @@ print_service(const char *service)
 		    errno != EACCES)
 		{
 			snprintf(status, sizeof(status), " crashed ");
+		} else if (!service_status(service)) {
+			// The service could use its own status method
+			snprintf(status, sizeof(status), " crashed ");
 		} else {
 			snprintf(status, sizeof(status), " started ");
 			color = ECOLOR_GOOD;
